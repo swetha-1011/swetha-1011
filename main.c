@@ -6,17 +6,27 @@ C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
 Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-#include <stdio.h>
+#include<stdio.h>
 
-int sum(int n)  {
+#include<conio.h>
 
-   if(n!=0)
+int lcm(int a , int b)
 
-       return (n%10 + sum(n/10));
+{
 
-   else
+static int m = 0;
 
-       return 0;
+m = m + b;
+
+if(m % a == 0 && m % b == 0)
+
+{
+
+ return m;
+
+}
+
+return lcm(a , b);
 
 }
 
@@ -24,16 +34,18 @@ int main()
 
 {
 
-   int n;
+int x , y;
 
-   printf("Enter a number - ");
+printf("Enter First Number : ");
 
-   scanf("%d",&n);
+scanf("%d" , &x);
 
-   printf("Sum of the digits of %d is: %d",n,sum(n));
+printf("Enter Seconf Number : ");
 
-   return 0;
+scanf("%d" , &y);
+
+printf("LCM of %d and %d = %d" , x , y , lcm(x , y));
+
+return 0;
 
 }
-
-
