@@ -6,32 +6,30 @@ C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
 Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-#include <stdio.h>
-
-#define MAX_SIZE 100 // Maximum array size
-
+#include<stdio.h>
 int main()
 {
-    int arr[MAX_SIZE];
-    int N, i;
-    int * ptr = arr;    // Pointer to arr[0] 
-
-    printf("Enter size of array: ");
-    scanf("%d", &N);
-
-    printf("Enter elements in array:\n");
-    for (i = 0; i < N; i++)
-    {
-        // (ptr + i) is equivalent to &arr[i]
-        scanf("%d", (ptr + i));   
-    }
-
-    printf("Array elements: ");
-    for (i = 0; i < N; i++)
-    {
-        // *(ptr + i) is equivalent to arr[i]
-        printf("%d, ", *(ptr + i));
-    }
-
-    return 0;
+      FILE *fp;
+      char ch;
+      int i,pos;
+      fp=fopen("input.txt","r");
+      if(fp==NULL)
+      {
+            printf("File does not exist..");
+      }
+      fseek(fp,0,SEEK_END);
+      pos=ftell(fp);
+      //printf("Current postion is %d\n",pos);
+      i=0;
+     
+      while(i<pos)
+      
+       {
+            i++;
+            fseek(fp,-i,SEEK_END);
+            //printf("%c",fgetc(fp));
+            ch=fgetc(fp);
+            printf("%c",ch);
+      }
+      return 0;
 }
